@@ -12,11 +12,11 @@
         <a class="nav-link text-white" href="<?= base_url('gallery') ?>">Galeri Foto</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link text-white" href="#">Pricing</a>
+        <a class="nav-link text-white" href="<?= base_url('tickets') ?>">Pesan Tiket</a>
       </li>
-      <li class="nav-item">
+      <!-- <li class="nav-item">
         <a class="nav-link disabled" href="#">Disabled</a>
-      </li>
+      </li> -->
     </ul>
   </div>
 </nav>
