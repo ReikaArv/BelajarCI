@@ -12,11 +12,12 @@ class AdminPanel extends BaseController
         $admin = new ModelAdmin();
         $trxlist = [
             'showData' => $admin->showData()->getResult(),
+            'pageTitle' => 'Halaman Admin',
         ];
         return view('AdminPanel/viewPanel', $trxlist);
     }
 
-    public function saveData() {
-        
+    public function saveData()
+    {
     }
 }

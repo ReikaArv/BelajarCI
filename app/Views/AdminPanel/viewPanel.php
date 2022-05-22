@@ -4,9 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Landscaper</title>
-  <meta name="description" content="">
-  <meta name="author" content="">
+  <title><?= $pageTitle ?></title>
 
   <?= $this->include('Templates/header') ?>
 
@@ -46,7 +44,7 @@
             <td><?= $data->trx_value ?></td>
             <td><?= $data->trx_time ?> </td>
             <td>
-              <select class="form-control" id="exampleFormControlSelect1" type="submit">
+              <select class="form-control" id="selectform" type="submit">
                 <option value="" disabled selected><?= $data->trx_status ?></option>
                 <?php
                 $statuses = ['Valid', 'Pending', 'Selesai', 'Batal'];
@@ -57,7 +55,7 @@
                 for ($counter, $length; $counter < $length; $counter++) {
                   if ($data->trx_status != $statuses[$counter]) {
                 ?>
-                    <option><?= $statuses[$counter] ?></option>
+                    <option value="<?= $statuses[$counter] ?>"><?= $statuses[$counter] ?></option>
                 <?php
                   }
                 }
