@@ -17,11 +17,13 @@
     <div class="intro">
         <div class="overlay">
             <div class="container">
+            
                 <!-- <div class="row"> -->
                 <div class="intro-text">
-                    <h1>Pembelian ID <?= $trxid = $getTrxId->trx_id; ?> Berhasil</h1>
-                    <p class="intro-subtext">Website Wisata Alam Batu So'on Solor, Bondowoso</p>
-                    <a href="<?= base_url('tickets') ?>" class="btn btn-custom btn-lg page-scroll">Pesan Tiket</a>
+                <img src="<?= base_url('assets/img/success/cliply-green-check.gif') ?>" style="height: 200px;" />
+                    <h2>Pembelian Tiket dengan ID #<?= $trxid = $getTrxId->trx_id; ?> Berhasil</h2>
+                    <p class="intro-subtext">Halaman ini bersifat Invoice. Silahkan screenshot halaman ini dan tunjukkan kepada petugas ketika anda sedang berkunjung ke Wisata Alam Batu So'on Bondowoso</p>
+                    <a href="<?= base_url('landingpage') ?>" class="btn btn-custom btn-lg page-scroll">Kembali ke Halaman Awal</a>
                 </div>
                 <!-- </div> -->
             </div>

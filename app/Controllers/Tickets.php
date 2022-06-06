@@ -59,7 +59,6 @@ class Tickets extends BaseController
             echo 'gagal';
         }
 
-        return $data['trx_id'];
     }
 
     public function buySuccess() {

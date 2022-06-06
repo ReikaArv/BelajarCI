@@ -7,12 +7,7 @@ body, html {
 	width: 100% !important;
 	height: 100% !important;
 }
-h2 {
-	margin: 0 0 20px 0;
-	font-weight: 600;
-	font-size: 36px;
-	color: #333;
-}
+
 h3, h4 {
 	font-size: 20px;
 	font-weight: 400;
@@ -27,7 +22,7 @@ p {
 	font-size: 15px;
 }
 p.intro {
-	margin: 12px 0 0;
+	/* margin: 12px 0 0; */
 	line-height: 24px;
 }
 a {
@@ -82,11 +77,7 @@ a:focus, .btn:focus, .btn:active:focus, .btn.active:focus, .btn.focus, .btn:acti
 	background: linear-gradient(to bottom, rgba(0,0,0,0.6) 0%, rgba(112,173,71,0.4) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
 filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#99000000', endColorstr='#6670ad47', GradientType=0 ); /* IE6-9 */
 }
-.intro .fa {
-	font-size: 94px;
-	margin-bottom: 40px;
-	color: #fff;
-}
+
 .intro h1 {
 	color: #fff;
 	font-size: 64px;
@@ -94,6 +85,14 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#99000000', e
 	letter-spacing: -1px;
 	margin-top: 0;
 	margin-bottom: 10px;
+	text-transform: uppercase;
+}
+
+h2 {
+	margin: 0 0 20px 0;
+	font-weight: 600;
+	font-size: 40px;
+	color: #fff;
 	text-transform: uppercase;
 }
 
@@ -106,7 +105,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#99000000', e
 }
 
 header .intro-text {
-	padding-top: 320px;
+	padding-top: 100px;
 	padding-bottom: 200px;
 	text-align: center;
 }
