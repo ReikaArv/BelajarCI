@@ -19,17 +19,16 @@ class Tickets extends BaseController
         echo view('Tickets/viewTicketList', $tixlist);
     }
 
-
-    public function saveData()
+    public function savefromQr()
     {
 
         // Prices stuff
-        $tix1num = $this->request->getPost('order2');
+        $tix1num = $this->request->getPost('tiket-orang');
         if (is_null($tix1num)) {
             $tix1num = 0;
         }
         $tix1totalprice = $tix1num * 5000;
-        $tix2num = $this->request->getPost('order3');
+        $tix2num = $this->request->getPost('tiket-parkir');
         if (is_null($tix2num)) {
             $tix2num = 0;
         }
@@ -46,7 +45,7 @@ class Tickets extends BaseController
 
 
         $data = [
-            'trx_id' => $this->request->getPost('trxid'),
+            'trx_id' => $this->request->getPost('id-tiket'),
             'trx_value' => $totalprice,
             'trx_desc' => $tix_desc,
             'trx_status' => 'Pending',
@@ -54,16 +53,21 @@ class Tickets extends BaseController
 
         if ($data['trx_value'] != 0) {
             $tickets = new ModelTicket();
-            $datasave = $tickets->saveData($data);
-
-            if ($datasave) {
-                // return redirect()->to('Tickets');
-                // echo 'data tersimpan';
-                var_dump($tix_desc);
-            }
-
+            $datasave = $tickets->savefromQr($data);
+            return redirect()->to('tickets/buySuccess');
         } else {
             echo 'gagal';
         }
+
+        return $data['trx_id'];
+    }
+
+    public function buySuccess() {
+        $tickets = new ModelTicket();
+        $tixlist = [
+            'showData' => $tickets->showData()->getResult(),
+            'getTrxId' => $tickets->getLatestTrxId()->getRow()
+        ];
+        echo view('Tickets/success', $tixlist);
     }
 }

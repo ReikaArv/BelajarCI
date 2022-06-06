@@ -26,4 +26,9 @@ class ModelTicket extends Model
     {
         return $this->dbconn->table('transaction')->insert($data);
     }
+
+    function savefromQr($data)
+    {
+        return $this->dbconn->table('transaction')->insert($data);
+    }
 }

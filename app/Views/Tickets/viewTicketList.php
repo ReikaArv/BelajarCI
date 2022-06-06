@@ -1,8 +1,3 @@
-<?php
-// Start the session
-session_start();
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -12,7 +7,6 @@ session_start();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Daftar Harga Ticket</title>
 
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
     <?= $this->include('Templates/header') ?>
 </head>
@@ -22,19 +16,13 @@ session_start();
     <?= $this->include('Templates/navbar') ?>
 
     <div class="container">
-        <?= form_open('Tickets/saveData') ?>
-        <div class="p" style="margin-top: 100px">Ticket ID:</div>
-        <p id="trxid">
+        <div class="p" style="margin-top: 50px; visibility: hidden;">Ticket ID:</div>
+        <p id="trxid" style="visibility: hidden;">
             <?php
             $trxid = $getTrxId->trx_id + 1;
             echo $trxid
-
             ?>
         </p>
-        <?php
-        $cookiename = $trxid;
-        setcookie($cookiename, $trxid, time() + 900)
-        ?>
         <div class="row">
 
             <?php foreach ($showData as $data) : ?>
@@ -68,24 +56,62 @@ session_start();
                 <label for="email">Masukkan email untuk konfirmasi</label>
                 <input type="email" id="email" class="form-control" placeholder="contoh@mail.com">
             </div>
-            <input type="submit" class="btn btn-success" onclick="checkvalue()" value="Bayar">
-        </div>
 
-        <? form_close() ?>
+            <button type="submit" class="btn btn-primary" id="btn-qr" data-toggle="modal" data-target="#showQR" data-id="<?= $trxid ?>">
+                Bayar
+            </button>
+        </div>
 
 
     </div>
 
-    <script>
-        function checkValue() {
-            var a = document.getElementById('data2');
-            var b = document.getElementById('data3');
+    <!-- Button trigger modal -->
 
-            if (a == 0 && b == 0) {
-                alert("Silahkan masukkan jumlah tiket")
-            }
-        }
-    </script>
+
+    <!-- Modal -->
+    <?= form_open('Tickets/savefromQr') ?>
+    <div class="modal fade" id="showQR" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modalTitle">Modal title</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <img src="<?= base_url('assets/img/qrcode/qrcode.png') ?> " width="60%" class="rounded mx-auto d-block">
+                    <!-- <h5>ceritanya gambar qr</h5> -->
+                    <div class="form-group row">
+                        <label for="staticId" class="col-sm-3 col-form-label">ID Pesanan :</label>
+                        <div class="col-sm-7">
+                            <input type="text" readonly class="form-control-plaintext" id="staticId">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="staticHarga" class="col-sm-3 col-form-label">Total Biaya :</label>
+                        <div class="col-sm-7">
+                            <input type="text" readonly class="form-control-plaintext" id="staticHarga">
+                        </div>
+                    </div>
+                    <p>Silahkan scan code QR diatas menggunakan aplikasi E-wallet anda. Lakukan pembayaran sesuai nominal yang tertera dan tuliskan Order ID anda pada notes pembayaran di E-wallet anda. Klik Pesan Tiket jika selesai membayar</p>
+
+
+                    <!-- Hidden input to send to backend -->
+                    <input type="hidden" name="id-tiket" id="id-tiket">
+                    <input type="hidden" name="tiket-orang" id="tiket-orang">
+                    <input type="hidden" name="tiket-parkir" id="tiket-parkir">
+                    <!-- End hidden input  -->
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">Pesan Tiket</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <?= form_close() ?>
 
     </div>
     </div>
