@@ -4,4 +4,6 @@ $(document).on('click', '#btn-edit', function() {
     $('.modal-body #value-transaksi').val($(this).data('value'));
     $('.modal-body #status-transaksi').val($(this).data('status'));
     
+    $('#modalEdit_title').html('Edit Order ID #'+($(this).data('id')));
+    
 });

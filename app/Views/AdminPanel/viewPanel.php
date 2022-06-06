@@ -47,7 +47,7 @@
               <td><?= $data->trx_status ?></td>
               <td><?= $data->trx_validationTime ?> </td>
               <td>
-                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalEdit" id="btn-edit" data-id="<?= $data->trx_id; ?>" data-desc="<?= $data->trx_desc ?>" data-value="<?= $data->trx_value ?>" data-status="<?= $data->trx_status ?>">
+                <button type="button" class="btn btn-success" data-toggle="modal" data-target="#modalEdit" id="btn-edit" data-id="<?= $data->trx_id; ?>" data-desc="<?= $data->trx_desc ?>" data-value="<?= $data->trx_value ?>" data-status="<?= $data->trx_status ?>">
                   Edit
                 </button>
 
@@ -65,7 +65,7 @@
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+            <h5 class="modal-title" id="modalEdit_title">Title</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
@@ -101,10 +101,12 @@
                 </td>
             </div>
           </div>
-          <div class="modal-footer" style="margin-top: 10px;">
-            <input type="hidden" name="id-transaksi" id="id-transaksi">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
-            <button type="submit" class="btn btn-primary">Simpan</button>
+          <div class="modal-footer" >
+            <div class="form-group" >
+              <input type="hidden" name="id-transaksi" id="id-transaksi" class="form-control">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal" id="modal-btn">Batal</button>
+              <button type="submit" class="btn btn-success" id="modal-btn">Simpan</button>
+            </div>
           </div>
         </div>
       </div>
