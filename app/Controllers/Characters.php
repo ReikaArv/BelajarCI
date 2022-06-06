@@ -71,7 +71,8 @@ class Characters extends BaseController
     }
 
     function updateData()
-    {
+    {   
+        
         $id = $this->request->getPost('id');
         $data = [
             'id' => $this->request->getPost('id'),

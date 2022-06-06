@@ -25,8 +25,14 @@ class Tickets extends BaseController
 
         // Prices stuff
         $tix1num = $this->request->getPost('order2');
+        if (is_null($tix1num)) {
+            $tix1num = 0;
+        }
         $tix1totalprice = $tix1num * 5000;
         $tix2num = $this->request->getPost('order3');
+        if (is_null($tix2num)) {
+            $tix2num = 0;
+        }
         $tix2totalprice = $tix2num * 2000;
         $totalprice = $tix1totalprice + $tix2totalprice;
 
