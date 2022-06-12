@@ -20,7 +20,12 @@
 
   <!-- Header -->
   <div class="container">
-    <h1 style="padding-top: 100px; color: black;">Daftar Pembelian Tiket</h1>
+    <h1 id='daftarText'>Daftar Pembelian Tiket</h1>
+    <form class="form-inline">
+      <div class="form-group mb-2">
+        <input type="text" class="form-control " id="srcInput" onkeyup="searchFunc()" placeholder="Cari ID Transaksi">
+      </div>
+    </form>
     <div class="tabel">
 
       <table class="table table-success table-hover" id="transactionlist">
@@ -122,11 +127,5 @@
   <?= $this->include('Templates/footer') ?>
 
 </body>
-<script>
-  $(document).ready(function() {
-    $('#transactionlist').DataTable();
-    $('.dataTables_length').addClass('bs-select');
-  });
-</script>
 
 </html>
