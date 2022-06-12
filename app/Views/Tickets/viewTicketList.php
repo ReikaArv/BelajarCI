@@ -11,7 +11,7 @@
     <?= $this->include('Templates/header') ?>
 </head>
 
-<body>
+<body style="" >
 
     <?= $this->include('Templates/navbar') ?>
 
@@ -28,13 +28,15 @@
             <?php foreach ($showData as $data) : ?>
                 <div class="col-md-3 col-sm-6">
                     <div class="card-deck">
-                        <div class="card" style="width: 18rem;">
-                            <img class="card-img-top" src="<?= base_url('img/ticket.png') ?> " alt="Card image cap" style="width: 50%;">
+                        <div class="card shadow p-3 mb-5 bg-white rounded" style="width: 21rem;">
+                            <img class="card-img-top rounded mx-auto d-block" src="<?= base_url('img/ticket.png') ?> " alt="Card image cap" style="width: 50%;">
                             <div class="card-body">
                                 <h5 class="card-title" id="tiket<?= $data->id_tix + 1 ?>"><?= $data->nama_tix ?></h5>
                                 <h6 class="card-subtitle mb-2 text-muted">Rp. <?= $data->harga_tix ?></h6>
                                 <p class="card-text"><?= $data->desc_tix ?></p>
-                                <div class="form-group">
+                                <label for="order<?= $data->id_tix + 1 ?>" class="text-dark">Masukkan Jumlah Tiket :</label>
+                                <input type="text" id="order<?= $data->id_tix + 1 ?>" name="order<?= $data->id_tix + 1 ?>" class="form-control" placeholder="1">
+                                <!-- <div class="form-group">
                                     <label for="order<?= $data->id_tix + 1 ?>">Jumlah Tiket: </label>
                                     <select class="form-control" id="order<?= $data->id_tix + 1 ?>" name="order<?= $data->id_tix + 1 ?>">
                                         <option value="" disabled selected>Pilih jumlah tiket yang ingin dipesan</option>
@@ -44,7 +46,7 @@
                                         <option>4</option>
                                         <option>5</option>
                                     </select>
-                                </div>
+                                </div> -->
                             </div>
                         </div>
                     </div>
@@ -53,12 +55,12 @@
         </div>
         <div class="form" style="margin-top: 20px;">
             <div class="form-group col-md-5">
-                <label for="email">Masukkan email untuk konfirmasi</label>
+                <label for="email" class="text-white">Masukkan email untuk konfirmasi</label>
                 <input type="email" id="email" class="form-control" placeholder="contoh@mail.com">
             </div>
 
-            <button type="submit" class="btn btn-primary" id="btn-qr" data-toggle="modal" data-target="#showQR" data-id="<?= $trxid ?>">
-                Bayar
+            <button type="submit" class="btn btn-success" id="btn-qr" data-toggle="modal" data-target="#showQR" data-id="<?= $trxid ?>">
+                Pesan Tiket
             </button>
         </div>
 
@@ -80,7 +82,7 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <img src="<?= base_url('assets/img/qrcode/qrcode.png') ?> " width="60%" class="rounded mx-auto d-block">
+                    <img class="rounded mx-auto d-block" src="<?= base_url('assets/img/qrcode/qrcode.png') ?> " width="60%">
                     <!-- <h5>ceritanya gambar qr</h5> -->
                     <div class="form-group row">
                         <label for="staticId" class="col-sm-3 col-form-label">ID Pesanan :</label>
@@ -106,7 +108,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="submit" class="btn btn-primary">Pesan Tiket</button>
+                    <button type="submit" class="btn btn-primary">Lanjutkan</button>
                 </div>
             </div>
         </div>

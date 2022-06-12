@@ -20,10 +20,10 @@
 
   <!-- Header -->
   <div class="container">
-    <h1 style="padding-top: 100px;">Daftar Pembelian Tiket</h1>
+    <h1 style="padding-top: 100px; color: black;">Daftar Pembelian Tiket</h1>
     <div class="tabel">
 
-      <table class="table">
+      <table class="table table-success table-hover" id="transactionlist">
         <thead>
           <tr>
             <th>ID</th>
@@ -101,8 +101,8 @@
                 </td>
             </div>
           </div>
-          <div class="modal-footer" >
-            <div class="form-group" >
+          <div class="modal-footer">
+            <div class="form-group">
               <input type="hidden" name="id-transaksi" id="id-transaksi" class="form-control">
               <button type="button" class="btn btn-secondary" data-dismiss="modal" id="modal-btn">Batal</button>
               <button type="submit" class="btn btn-success" id="modal-btn">Simpan</button>
@@ -122,6 +122,11 @@
   <?= $this->include('Templates/footer') ?>
 
 </body>
+<script>
+  $(document).ready(function() {
+    $('#transactionlist').DataTable();
+    $('.dataTables_length').addClass('bs-select');
+  });
 </script>
 
 </html>

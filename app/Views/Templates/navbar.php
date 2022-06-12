@@ -1,5 +1,5 @@
 <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-success">
-  <a class="navbar-brand" href="#">Navbar</a>
+  <a class="navbar-brand" href="<?= base_url('landingpage') ?>"><img src="<?= base_url('assets/img/logo/Lambang_Bondowoso.png') ?>" alt="" style="height: 30px;"></a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>

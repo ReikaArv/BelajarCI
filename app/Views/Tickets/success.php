@@ -11,10 +11,10 @@
 
 <?= $this->include('Templates/navbar') ?>
 
-
+<body style="background-image: None;" >
 <!-- Header -->
 <header id="header">
-    <div class="intro">
+    <div class="intro" style="background-image: None;">
         <div class="overlay">
             <div class="container">
             

@@ -36,6 +36,7 @@ $routes->get('/tickets', 'Tickets::index');
 $routes->get('/landingpage', 'LandingPage::index');
 $routes->get('/gallery', 'Gallery::index');
 $routes->get('/admin', 'AdminPanel::index');
+$routes->get('/login', 'Auth::login');
 
 /*
  * --------------------------------------------------------------------

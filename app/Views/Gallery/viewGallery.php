@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Landscaper</title>
+  <title><?= $pageTitle ?></title>
   <meta name="description" content="">
   <meta name="author" content="">
 
