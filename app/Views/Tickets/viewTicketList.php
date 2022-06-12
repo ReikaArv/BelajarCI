@@ -36,17 +36,6 @@
                                 <p class="card-text"><?= $data->desc_tix ?></p>
                                 <label for="order<?= $data->id_tix + 1 ?>" class="text-dark">Masukkan Jumlah Tiket :</label>
                                 <input type="text" id="order<?= $data->id_tix + 1 ?>" name="order<?= $data->id_tix + 1 ?>" class="form-control" placeholder="1">
-                                <!-- <div class="form-group">
-                                    <label for="order<?= $data->id_tix + 1 ?>">Jumlah Tiket: </label>
-                                    <select class="form-control" id="order<?= $data->id_tix + 1 ?>" name="order<?= $data->id_tix + 1 ?>">
-                                        <option value="" disabled selected>Pilih jumlah tiket yang ingin dipesan</option>
-                                        <option>1</option>
-                                        <option>2</option>
-                                        <option>3</option>
-                                        <option>4</option>
-                                        <option>5</option>
-                                    </select>
-                                </div> -->
                             </div>
                         </div>
                     </div>

@@ -1,6 +1,12 @@
-.card {
+/* .card {
     border-radius: 15px;
     background: linear-gradient(to top left, #ffff66 0%, #339933 101%);
     color: white;
     text-shadow: #ffff66;
+} */
+
+.card {
+    background-color: #175c15;
+    border-radius: 1rem;
+    height: 500px;
 }

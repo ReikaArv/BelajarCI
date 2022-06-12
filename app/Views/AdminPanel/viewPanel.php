@@ -12,9 +12,6 @@
 </head>
 
 <body>
-  <!-- Navigation
-    ==========================================-->
-
   <?= $this->include('Templates/navbar') ?>
 
 
@@ -79,12 +76,12 @@
 
             <div class="form-group">
               <label>Deskripsi Transaksi</label>
-              <input type="text" class="form-control" name="desc-transaksi" id="desc-transaksi" placeholder="Deskripsi Transaksi">
+              <input type="text" readonly class="form-control" name="desc-transaksi" id="desc-transaksi" placeholder="Deskripsi Transaksi">
             </div>
 
             <div class="form-group">
               <label>Jumlah Transaksi</label>
-              <input type="text" class="form-control" name="value-transaksi" id="value-transaksi" placeholder="Jumlah Transaksi" value="<?= $data->trx_value ?>">
+              <input type="text" readonly  class="form-control" name="value-transaksi" id="value-transaksi" placeholder="Jumlah Transaksi" value="<?= $data->trx_value ?>">
             </div>
 
             <div class="form-group">
