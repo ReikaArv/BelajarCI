@@ -14,20 +14,22 @@ class Auth extends BaseController
     public function login()
     {
         helper('form');
+        if (session('logged_in')) {
+            return redirect()->to(site_url('admin'));
+        };
         return view('Auth/viewLogin');
-        
     }
 
     public function loginProcess()
-    {   
+    {
 
         helper('form');
         $this->dbconn = db_connect();
         $post = $this->request->getPost();
         $query = $this->dbconn->table('accounts')->getWhere(['username' => $post['username']]);
         $user   = $query->getRow();
-        if($user){
-            if($post['password'] == $user->password){
+        if ($user) {
+            if ($post['password'] == $user->password) {
                 $data = [
                     'username' => $user->username,
                     'logged_in' => true,
@@ -35,9 +37,10 @@ class Auth extends BaseController
                 session()->set($data);
                 return redirect()->to(site_url('admin'));
             } else {
-                return redirect()->back()->with('error', 'Username atau Password Salah');
+                return redirect()->back()->with('error', 'Password Salah');
             }
         };
+        return redirect()->back()->with('error', 'Username tidak ditemukan');
         // if($user){
         //   return redirect()->to('admin');
         // } else {
@@ -47,4 +50,9 @@ class Auth extends BaseController
         // $user = $this->db->table('users')->where('username', $data['username'])->first();
     }
 
+    public  function logout()
+    {
+        session()->destroy();
+        return redirect()->to(site_url('login'));
+    }
 }

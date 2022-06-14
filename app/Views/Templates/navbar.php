@@ -14,9 +14,19 @@
       <li class="nav-item">
         <a class="nav-link text-white" href="<?= base_url('tickets') ?>">Pesan Tiket</a>
       </li>
-      <!-- <li class="nav-item">
-        <a class="nav-link disabled" href="#">Disabled</a>
-      </li> -->
+      <?php if (session('logged_in')) : ?>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-expanded="false">
+            Hi, <?= session('username') ?>
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="#">Action</a>
+            <a class="dropdown-item" href="#">Another action</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="<?= site_url('Auth/logout') ?>">Logout</a>
+          </div>
+        </li>
+      <?php endif ?>
     </ul>
   </div>
 </nav>
