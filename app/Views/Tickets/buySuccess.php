@@ -16,7 +16,7 @@
     <?= $this->include('Templates/navbar') ?>
     <div class="container">
 
-        <p id="successText">Center aligned text on all viewport sizes.</p>
+        <p id="successText"><?= session('trxid') ?></p>
     </div>
 
 </body>

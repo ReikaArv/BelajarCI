@@ -55,7 +55,11 @@ class Tickets extends BaseController
         if ($data['trx_value'] != 0) {
             $tickets = new ModelTicket();
             $datasave = $tickets->savefromQr($data);
-            return redirect()->to('tickets/buySuccess');
+            $sess = [
+                'trxid' => $data['trx_id'],
+            ];
+            session()->set($sess);
+            return redirect()->to('tickets/buySuccess',);
         } else {
             echo 'gagal';
         }
@@ -63,12 +67,8 @@ class Tickets extends BaseController
     }
 
     public function buySuccess() {
-        $tickets = new ModelTicket();
-        $tixlist = [
-            'showData' => $tickets->showData()->getResult(),
-            'getTrxId' => $tickets->getLatestTrxId()->getRow()
-        ];
-        echo view('Tickets/success', $tixlist);
+        session()->remove('trxid');
+        echo view('Tickets/success');
     }
 
     public function checkTicket() {
