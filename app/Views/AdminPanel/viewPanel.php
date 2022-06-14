@@ -16,7 +16,7 @@
 
 
   <!-- Header -->
-  <div class="container">
+  <div class="container-fluid">
     <h1 id='daftarText'>Daftar Pembelian Tiket</h1>
     <form class="form-inline">
       <div class="form-group mb-2">
@@ -32,6 +32,7 @@
             <th>Tiket yang dibeli</th>
             <th>Total Pembelian</th>
             <th>Waktu Transaksi</th>
+            <th>Email Pembeli</th>
             <th>Status Transaksi</th>
             <th>Waktu Validasi</th>
             <th>Aksi</th>
@@ -46,14 +47,15 @@
               <td><?= $data->trx_desc ?> </td>
               <td><?= $data->trx_value ?></td>
               <td><?= $data->trx_time ?> </td>
+              <td><?= $data->trx_email ?></td>
               <td><?= $data->trx_status ?></td>
               <td><?= $data->trx_validationTime ?> </td>
               <td>
-                <button type="button" class="btn btn-sm btn-success" data-toggle="modal" data-target="#modalEdit" id="btn-edit" data-id="<?= $data->trx_id; ?>" data-desc="<?= $data->trx_desc ?>" data-value="<?= $data->trx_value ?>" data-status="<?= $data->trx_status ?>">
+                <button type="button" class="btn btn-sm btn-success edit-btn" data-toggle="modal" data-target="#modalEdit" id="btn-edit" data-id="<?= $data->trx_id; ?>" data-desc="<?= $data->trx_desc ?>" data-value="<?= $data->trx_value ?>" data-status="<?= $data->trx_status ?>">
                   Edit
                 </button>
 
-                <a href="#" class="btn btn-danger btn-sm btn-delete" trx_id="<?= $data->trx_id; ?>">Delete</a>
+                <!-- <a href="<?= site_url('admin/deleteData') ?>" class="btn btn-danger btn-sm btn-delete" trx_id="<?= $data->trx_id; ?>">Delete</a> -->
               </td>
             </tr>
           <?php endforeach ?>

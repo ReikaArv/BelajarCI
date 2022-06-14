@@ -11,7 +11,7 @@
     <?= $this->include('Templates/header') ?>
 </head>
 
-<body style="" >
+<body>
 
     <?= $this->include('Templates/navbar') ?>
 
@@ -78,11 +78,13 @@
                         <div class="col-sm-7">
                             <input type="text" readonly class="form-control-plaintext" id="staticId">
                         </div>
-                    </div>
-                    <div class="form-group row">
                         <label for="staticHarga" class="col-sm-3 col-form-label">Total Biaya :</label>
                         <div class="col-sm-7">
                             <input type="text" readonly class="form-control-plaintext" id="staticHarga">
+                        </div>
+                        <label for="staticEmail" class="col-sm-3 col-form-label">Email :</label>
+                        <div class="col-sm-7">
+                            <input type="text" readonly class="form-control-plaintext" name="email-buyer" id="staticEmail">
                         </div>
                     </div>
                     <p>Silahkan scan code QR diatas menggunakan aplikasi E-wallet anda. Lakukan pembayaran sesuai nominal yang tertera dan tuliskan Order ID anda pada notes pembayaran di E-wallet anda. Klik Pesan Tiket jika selesai membayar</p>

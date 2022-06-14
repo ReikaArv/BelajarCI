@@ -49,6 +49,7 @@ class Tickets extends BaseController
             'trx_value' => $totalprice,
             'trx_desc' => $tix_desc,
             'trx_status' => 'Pending',
+            'trx_email' => $this->request->getPost('email-buyer'),
         ];
 
         if ($data['trx_value'] != 0) {
