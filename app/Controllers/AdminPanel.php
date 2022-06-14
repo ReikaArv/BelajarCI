@@ -26,7 +26,7 @@ class AdminPanel extends BaseController
     {
         $admin = new ModelAdmin();
         $id = $this->request->getPost('id-transaksi');
-        $nowTime = Time::now('Asia/Jakarta', 'en_US');
+        $nowTime = Time::now();
         $updatedata = [
             'trx_desc' => $this->request->getPost('desc-transaksi'),
             'trx_value' => $this->request->getPost('value-transaksi'),
@@ -42,7 +42,8 @@ class AdminPanel extends BaseController
         }
     }
 
-    public function deleteData() {
+    public function deleteData()
+    {
         $admin = new ModelAdmin();
         $id = $this->request->getPost('trx_id');
         $admin->deleteData($id);

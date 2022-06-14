@@ -3,6 +3,7 @@
 namespace App\Controllers;
 
 use App\Models\ModelAuth;
+use CodeIgniter\I18n\Time;
 
 class Auth extends BaseController
 {
@@ -17,7 +18,10 @@ class Auth extends BaseController
         if (session('logged_in')) {
             return redirect()->to(site_url('admin'));
         };
-        return view('Auth/viewLogin');
+        $data = [
+            'pageTitle' => 'Login',
+        ];
+        return view('Auth/viewLogin', $data);
     }
 
     public function loginProcess()
@@ -33,6 +37,7 @@ class Auth extends BaseController
                 $data = [
                     'username' => $user->username,
                     'logged_in' => true,
+                    'login_time' => Time::now(),
                 ];
                 session()->set($data);
                 return redirect()->to(site_url('admin'));

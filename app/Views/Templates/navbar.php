@@ -16,12 +16,12 @@
       </li>
       <?php if (session('logged_in')) : ?>
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-expanded="false">
+          <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-expanded="false">
             Hi, <?= session('username') ?>
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="#">Action</a>
-            <a class="dropdown-item" href="#">Another action</a>
+            <a class="dropdown-item" href="#">Nama : <?= session('username') ?></a>
+            <a class="dropdown-item" href="#">Waktu Login : <br> <?= session('login_time') ?></a>
             <div class="dropdown-divider"></div>
             <a class="dropdown-item" href="<?= site_url('Auth/logout') ?>">Logout</a>
           </div>
