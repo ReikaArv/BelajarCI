@@ -37,7 +37,7 @@ class Auth extends BaseController
                 $data = [
                     'username' => $user->username,
                     'logged_in' => true,
-                    'login_time' => Time::now(),
+                    'login_time' => date("h:i"),
                 ];
                 session()->set($data);
                 return redirect()->to(site_url('admin'));
