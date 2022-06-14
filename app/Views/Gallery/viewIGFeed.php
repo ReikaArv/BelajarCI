@@ -22,7 +22,7 @@
     <div class="container">
         <div class="ig">
             <?php foreach ($decode['data'] as $data) : ?>
-                <div class="card" style="width: 18rem;">
+                <div class="card border-success mb-3" style="width: 18rem;">
                     <?php
                     if ($data['media_type'] === 'IMAGE' or $data['media_type'] === 'CAROUSEL_ALBUM') {
                     ?>

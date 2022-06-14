@@ -69,4 +69,14 @@ class Tickets extends BaseController
         ];
         echo view('Tickets/success', $tixlist);
     }
+
+    public function checkTicket() {
+        helper('form');
+        $tickets = new ModelTicket();
+        $userinput = $this->request->getPost();
+        $query = $this->dbconn->table('transaction')->getWhere(['username' => $userinput['username']]);
+
+
+        echo view('Tickets/checkTicket', $tix);
+    }
 }
